@@ -11,11 +11,11 @@ namespace Core.Services
     public interface IGenericService<TEntity,TDto> where TEntity: class where TDto: class
     {
         Task<ResponseDto<TDto>> GetByIdAsync(int id);
-        Task<ResponseDto<IQueryable<TEntity>>> GetAllAsync();
-        Task<ResponseDto<IEnumerable<TEntity>>> Where(Expression<Func<TEntity, bool>> predicate);
-        Task<ResponseDto<TDto>> AddAsync(TEntity entity);
-        Task<ResponseDto<NoDataDto>> Remove(TEntity entity);
-        Task<ResponseDto<NoDataDto>> Update(TEntity entity);
+        Task<ResponseDto<IQueryable<TDto>>> GetAllAsync();
+        Task<ResponseDto<IEnumerable<TDto>>> Where(Expression<Func<TEntity, bool>> predicate);
+        Task<ResponseDto<TDto>> AddAsync(TDto entity);
+        Task<ResponseDto<NoDataDto>> Remove(int id);
+        Task<ResponseDto<NoDataDto>> Update(TDto entity,int id);
 
 
     }
